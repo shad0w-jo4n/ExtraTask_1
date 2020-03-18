@@ -1,6 +1,7 @@
 package com.company;
 
 import java.sql.SQLOutput;
+import java.util.Hashtable;
 import java.util.Stack;
 
 public class Calc {
@@ -145,18 +146,19 @@ public class Calc {
         //if (token == tg)
         //if (token == ctg)
 
-        // TODO: Make it by hashtable
+        // TODO: Make type of key string and save as property
+        Hashtable<char, int> tokens = new Hashtable<char, int>();
 
-        if (token == '*' || token == '/') {
-            return 3;
-        } else if (token == '+' || token == '-') {
-            return 2;
-        } else if (token == '(') {
-            return 1;
-        } else if (token == ')') {
-            return -1;
+        tokens.Add('*', 3);
+        tokens.Add('/', 3);
+        tokens.Add('+', 2);
+        tokens.Add('-', 2);
+        tokens.Add('(', 1);
+        tokens.Add(')', -1);
+
+        if (tokens.containsKey(token)) {
+            return tokens[token];
         } else {
-            //Приоритет чисел
             return 0;
         }
     }

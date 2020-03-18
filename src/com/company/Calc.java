@@ -149,15 +149,15 @@ public class Calc {
         // TODO: Make type of key string and save as property
         Hashtable<char, int> tokens = new Hashtable<char, int>();
 
-        tokens.Add('*', 3);
-        tokens.Add('/', 3);
-        tokens.Add('+', 2);
-        tokens.Add('-', 2);
-        tokens.Add('(', 1);
-        tokens.Add(')', -1);
+        tokens.put('*', 3);
+        tokens.put('/', 3);
+        tokens.put('+', 2);
+        tokens.put('-', 2);
+        tokens.put('(', 1);
+        tokens.put(')', -1);
 
         if (tokens.containsKey(token)) {
-            return tokens[token];
+            return tokens.get(token);
         } else {
             return 0;
         }
